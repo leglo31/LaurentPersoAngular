@@ -1,0 +1,39 @@
+<div class="text-center">
+  <h4 class="text-center">
+    Authentication form to enter Laurent's application</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+    <div class="example-container">
+      <div>
+        <div>
+          <input [(ngModel)]="loginForm.email" placeholder="Email" formControlName="email">
+          <div class="errorMessage"
+            *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+            Please enter a valid email address
+          </div>
+          <div class="errorMessage"
+            *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+            Email is required
+          </div>
+        </div>
+      </div>
+      <div class="mt-top-2">
+        <div>
+          <input [(ngModel)]="loginForm.password" type="password" placeholder="Password" formControlName="password">
+          <div class="errorMessage"
+            *ngIf="!loginForm.get('password')?.errors?.required && (loginForm.get('password')?.errors?.pattern)">
+            Password length must be greater than or equal to 8 and password must contain one or more uppercase ,
+            lowercase , numeric and special characters
+          </div>
+          <div class="errorMessage"
+            *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+            Password is required
+          </div>
+        </div>
+      </div>
+      <div class="mt-top">
+        <button [disabled]="!loginForm.valid" color="primary" (click)="checkLogin()">Sign In</button>
+        <div class="messageLogin" id="msg"></div>
+      </div>
+    </div>
+  </form>
+</div>
