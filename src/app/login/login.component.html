@@ -1,3 +1,13 @@
+<div class="custom">
+  <input type="text" class="formats" placeholder="Entrez le texte..." #input>
+  <button class="btn" type="button" (click)="saveData(input.value)">Enregistrer les données</button>
+
+  <hr>
+  <ul>
+    <li *ngFor="let item of data"> {{item}} </li>
+  </ul>
+</div>
+
 <div class="text-center">
   <h4 class="text-center">
     Authentication form to enter Laurent's application</h4>

@@ -13,7 +13,7 @@ export const environment = {
     projectId: 'laurentpersoangular',
     storageBucket: 'laurentpersoangular.appspot.com',
     messagingSenderId: '61102975249',
-    appId: '1:61102975249:web:1ef8442a4f38f04fdb84b0',
-    measurementId: 'G-GCB141J1GE',
+    appId: '1:61102975249:web:15936e18539378c7db84b0',
+    measurementId: 'G-PYP23YPMW6',
   },
 };
