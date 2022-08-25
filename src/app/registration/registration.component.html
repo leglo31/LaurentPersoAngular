@@ -1,16 +1,6 @@
-<!-- <div class="custom">
-  <input type="text" class="formats" placeholder="Entrez le texte..." #input>
-  <button class="btn" type="button" (click)="saveData(input.value)">Enregistrer les données</button>
-
-  <hr>
-  <ul>
-    <li *ngFor="let item of data"> {{item}} </li>
-  </ul>
-</div> -->
-
 <div class="text-center">
   <h4 class="text-center">
-    Authentication form to enter Laurent's application</h4>
+    Registration Form</h4>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
     <div class="example-container">
       <div>
@@ -31,7 +21,7 @@
           <input [(ngModel)]="loginForm.password" type="password" placeholder="Password" formControlName="password">
           <div class="errorMessage"
             *ngIf="!loginForm.get('password')?.errors?.required && (loginForm.get('password')?.errors?.pattern)">
-            Password length must be greater than or equal to 8 and password must contain one or more uppercase ,
+            Password length must be greater than or equal to 8,<br> and password must contain one or more uppercase,<br>
             lowercase , numeric and special characters
           </div>
           <div class="errorMessage"

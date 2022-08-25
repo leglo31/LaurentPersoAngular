@@ -6,7 +6,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class ConnectionBddService {
   constructor(private db: AngularFirestore) {}
+  allUsers: any = [];
 
+  //Recherche la collection Users avec les id
+  //Ensuite, cette fonction sera utilsée pour être souscrite
   getAllUsers() {
     return this.db.collection('Users').valueChanges({ idField: 'id' });
   }

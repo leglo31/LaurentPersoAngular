@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { ConnectionBddService } from './connection-bdd.service';
 
 @Component({
   selector: 'app-root',
@@ -8,21 +7,17 @@ import { ConnectionBddService } from './connection-bdd.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'LaurentPersoAngular';
   allUsers: any;
 
-  constructor(
-    private db: AngularFireDatabase,
-    private connectionBdd: ConnectionBddService
-  ) {}
+  constructor(private db: AngularFireDatabase) {}
 
   data: any = [];
 
   ngOnInit(): void {
-    const ref = this.db.list('items');
+    /*     const ref = this.db.list('items');
     ref.valueChanges().subscribe((data) => {
       this.data = data;
-    });
+    }); */
   }
 
   saveData(inputValue: string) {

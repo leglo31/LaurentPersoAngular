@@ -3,12 +3,13 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConnectionBddService } from '../connection-bdd.service';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
   loginForm: FormGroup | any;
   messageError: string = 'Unknown user!';
   readMessageError: boolean = false;
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    /* this.getUsers(); */
     /*     this.connectionBdd.addNewUser('007', 'chacha@hotmail', 'Chacha31!');
     const ref = this.db.list('items');
     ref.valueChanges().subscribe((data) => {
@@ -69,11 +70,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    /*     if (!this.loginForm.valid) {
+    if (!this.loginForm.valid) {
       return;
     }
-    localStorage.setItem('user', this.loginForm.value);
-    this.router.navigate(['/home']); */
+    this.router.navigate(['/login']);
   }
 
   checkLogin() {
