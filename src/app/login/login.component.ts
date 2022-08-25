@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,20 +9,13 @@ import { ConnectionBddService } from '../connection-bdd.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup | any;
+  @Input() loginForm: FormGroup | any;
+
   messageError: string = 'Unknown user!';
   readMessageError: boolean = false;
   BreakError = {};
   data: any = [];
   allUsers: any = [];
-
-  users = [
-    { email: 'leglo@hotmail.fr', password: 'Laurent31!' },
-    {
-      email: 'totino@hotmail.fr',
-      password: 'Totino31!',
-    },
-  ];
 
   constructor(
     private router: Router,
@@ -45,14 +38,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers();
+    //console.log('Le mail du user est: ', this.loginForm.email);
     /*     this.connectionBdd.addNewUser('007', 'chacha@hotmail', 'Chacha31!');
     const ref = this.db.list('items');
     ref.valueChanges().subscribe((data) => {
       this.data = data;
     }); */
   }
-
+  /*
   saveData(inputValue: string) {
     const ref = this.db.list('items');
     //create a database reference to "items" node.
@@ -66,14 +59,14 @@ export class LoginComponent implements OnInit {
       .catch((error) => {
         console.log(error);
       });
-  }
+  } */
 
   onSubmit() {
-    /*     if (!this.loginForm.valid) {
+    if (!this.loginForm.valid) {
       return;
     }
-    localStorage.setItem('user', this.loginForm.value);
-    this.router.navigate(['/home']); */
+    /* localStorage.setItem('user', this.loginForm.value); */
+    this.router.navigate(['/']);
   }
 
   checkLogin() {
@@ -86,7 +79,7 @@ export class LoginComponent implements OnInit {
           const userStorage = [{ email: user.password, password: user.email }];
 
           localStorage.setItem('loginFormUsers', JSON.stringify(userStorage));
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
           throw this.BreakError;
         } else {
           this.readMessageError = true;

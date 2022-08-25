@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -7,15 +8,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  //loginForm: FormGroup | any;
+
+  constructor(private router: Router, private login: LoginComponent) {
+    console.log('Le loginForm de Home est: ', this.login.loginForm.value);
+  }
 
   ngOnInit(): void {}
 
-  OnInscription() {
+  routInscription() {
     this.router.navigate(['/registration']);
   }
 
-  OnConnection() {
+  routConnection() {
     this.router.navigate(['/login']);
   }
 }

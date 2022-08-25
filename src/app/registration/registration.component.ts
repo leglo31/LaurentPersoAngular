@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConnectionBddService } from '../connection-bdd.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-registration',
@@ -17,17 +18,20 @@ export class RegistrationComponent implements OnInit {
   data: any = [];
   allUsers: any = [];
 
-  users = [
-    { email: 'leglo@hotmail.fr', password: 'Laurent31!' },
-    {
-      email: 'totino@hotmail.fr',
-      password: 'Totino31!',
-    },
-  ];
+  makeId(length: number) {
+    var result = '';
+    var characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
 
   constructor(
     private router: Router,
-    private db: AngularFireDatabase,
+    private db: AngularFirestore,
     private connectionBdd: ConnectionBddService
   ) {
     this.loginForm = new FormGroup({
@@ -54,19 +58,13 @@ export class RegistrationComponent implements OnInit {
     }); */
   }
 
-  saveData(inputValue: string) {
-    const ref = this.db.list('items');
-    //create a database reference to "items" node.
-    //if node present, it is automatically created for you
-
-    ref
-      .push(inputValue)
-      .then((Response) => {
-        console.log(Response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  addUser() {
+    this.connectionBdd.addNewUser(
+      this.makeId(5), //id aléatoire
+      this.loginForm.email,
+      this.loginForm.password
+    );
+    this.router.navigate(['/']);
   }
 
   onSubmit() {
