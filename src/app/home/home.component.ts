@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+import { ConnectionBddService } from '../connection-bdd.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,24 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  //loginForm: FormGroup | any;
+  public email: string = 'ooo';
+  loginFormHtml: FormGroup | any;
 
-  constructor(private router: Router, private login: LoginComponent) {
-    console.log('Le loginForm de Home est: ', this.login.loginForm.value);
+  constructor(
+    private router: Router,
+    private connectionBdd: ConnectionBddService
+  ) {}
+
+  ngOnInit(): void {
+    this.connectionBdd
+      .getLoginForm()
+      .subscribe((loginForm: FormGroup | any) => {
+        console.log('loginForm: ', loginForm);
+        /* this.email = loginForm.email.value; */
+        console.log('email: ', loginForm.email);
+        this.email = loginForm.email;
+      });
   }
-
-  ngOnInit(): void {}
 
   routInscription() {
     this.router.navigate(['/registration']);

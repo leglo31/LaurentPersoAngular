@@ -9,8 +9,7 @@ import { ConnectionBddService } from '../connection-bdd.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  @Input() loginForm: FormGroup | any;
-
+  loginForm: FormGroup | any;
   messageError: string = 'Unknown user!';
   readMessageError: boolean = false;
   BreakError = {};
@@ -38,6 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getUsers();
     //console.log('Le mail du user est: ', this.loginForm.email);
     /*     this.connectionBdd.addNewUser('007', 'chacha@hotmail', 'Chacha31!');
     const ref = this.db.list('items');
@@ -45,28 +45,13 @@ export class LoginComponent implements OnInit {
       this.data = data;
     }); */
   }
-  /*
-  saveData(inputValue: string) {
-    const ref = this.db.list('items');
-    //create a database reference to "items" node.
-    //if node present, it is automatically created for you
-
-    ref
-      .push(inputValue)
-      .then((Response) => {
-        console.log(Response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } */
 
   onSubmit() {
-    if (!this.loginForm.valid) {
+    /*     if (!this.loginForm.valid) {
       return;
     }
-    /* localStorage.setItem('user', this.loginForm.value); */
-    this.router.navigate(['/']);
+    this.checkLogin(); */
+    /*  this.router.navigate(['/']); */
   }
 
   checkLogin() {
@@ -79,16 +64,18 @@ export class LoginComponent implements OnInit {
           const userStorage = [{ email: user.password, password: user.email }];
 
           localStorage.setItem('loginFormUsers', JSON.stringify(userStorage));
+          this.connectionBdd.updateLoginForm(this.loginForm);
           this.router.navigate(['/']);
+
           throw this.BreakError;
         } else {
           this.readMessageError = true;
           document.getElementById('msg')!.innerHTML = this.messageError;
 
-          // On l'efface 6 secondes plus tard
-          setTimeout(function () {
+          // On l'efface 2 secondes plus tard
+          /*           setTimeout(() => {
             document.getElementById('msg')!.innerHTML = '';
-          }, 2000);
+          }, 2000); */
         }
       });
     } catch (err) {
