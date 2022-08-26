@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="example-container">
+  <h4 class="text-center">
+    Bienvenue sur l'application géniale de Laurent</h4>
+  <div class="image">
+    <img src="../assets/images/mon-image.png" />
+  </div>
+  <div class="backButton">
+    <button style="margin-right:5px;" color="primary" (click)="routInscription()">Inscription</button>
+    <button style="margin-left:5px;" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
+  </div>
+  <div>Vous êtes connecté avec l'adresse: {{email}}
+  </div>
+</div>

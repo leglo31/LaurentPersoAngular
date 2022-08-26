@@ -1,14 +1,16 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConnectionBddService } from '../connection-bdd.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
   loginForm: FormGroup | any;
   messageError: string = 'Unknown user!';
   readMessageError: boolean = false;
@@ -16,9 +18,20 @@ export class LoginComponent implements OnInit {
   data: any = [];
   allUsers: any = [];
 
+  makeId(length: number) {
+    var result = '';
+    var characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  }
+
   constructor(
     private router: Router,
-    private db: AngularFireDatabase,
+    private db: AngularFirestore,
     private connectionBdd: ConnectionBddService
   ) {
     this.loginForm = new FormGroup({
@@ -37,8 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUsers();
-    //console.log('Le mail du user est: ', this.loginForm.email);
+    /* this.getUsers(); */
     /*     this.connectionBdd.addNewUser('007', 'chacha@hotmail', 'Chacha31!');
     const ref = this.db.list('items');
     ref.valueChanges().subscribe((data) => {
@@ -46,12 +58,20 @@ export class LoginComponent implements OnInit {
     }); */
   }
 
+  addUser() {
+    this.connectionBdd.addNewUser(
+      this.makeId(5), //id aléatoire
+      this.loginForm.email,
+      this.loginForm.password
+    );
+    this.router.navigate(['/']);
+  }
+
   onSubmit() {
-    /*     if (!this.loginForm.valid) {
+    if (!this.loginForm.valid) {
       return;
     }
-    this.checkLogin(); */
-    /*  this.router.navigate(['/']); */
+    this.router.navigate(['/login']);
   }
 
   checkLogin() {
@@ -64,18 +84,16 @@ export class LoginComponent implements OnInit {
           const userStorage = [{ email: user.password, password: user.email }];
 
           localStorage.setItem('loginFormUsers', JSON.stringify(userStorage));
-          this.connectionBdd.updateLoginForm(this.loginForm);
-          this.router.navigate(['/']);
-
+          this.router.navigate(['/home']);
           throw this.BreakError;
         } else {
           this.readMessageError = true;
           document.getElementById('msg')!.innerHTML = this.messageError;
 
-          // On l'efface 2 secondes plus tard
-          /*           setTimeout(() => {
+          // On l'efface 6 secondes plus tard
+          setTimeout(function () {
             document.getElementById('msg')!.innerHTML = '';
-          }, 2000); */
+          }, 2000);
         }
       });
     } catch (err) {
