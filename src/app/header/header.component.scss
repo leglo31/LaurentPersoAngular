@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro&family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+/*
+font-family: 'Advent Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Advent+Pro&family=Dancing+Script&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* aucune marge sur tous les éléments, et éléments avec les marges sont calculés directement*/
+
+@media screen and (max-width: 6000px) {
+  /*grand écran*/
+  #titre {
+    font-size: 3em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 2em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.5em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1.4em;
+    color: darkslateblue;
+  }
+  #script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 1.1em;
+    color: darkslateblue;
+  }
+  footer a {
+    font-size: 1.2em;
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 1em;
+  }
+  .spanouvelle {
+    font-size: 0.8em;
+  }
+  h4 {
+    font-size: 2.2em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  /*écran pc normal 17' entre 1300 et 1800px*/
+  #titre {
+    font-size: 2.6em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.3em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1.2em;
+    color: darkslateblue;
+  }
+  #script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.9em;
+  }
+  .spanouvelle {
+    font-size: 0.65em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.8em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  /*écran hp ancien entre 900 et 1300px*/
+  #titre {
+    font-size: 2.3em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1.3em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.1em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  #script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.85em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: black;
+  }
+  h5 {
+    font-size: 0.75em;
+  }
+  .spanouvelle {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.6em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  /*tablette entre 480 et 900*/
+  .tousaside {
+    display: none;
+  }
+  #titre {
+    font-size: 2em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 0.9em;
+  }
+  article a,
+  p,
+  h3 a,
+  header a {
+    font-size: 0.8em;
+    color: darkslateblue;
+  }
+  #script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.65em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.6em;
+  }
+  .spanouvelle {
+    font-size: 0.5em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.4em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*portable*/
+  .tousaside {
+    display: none;
+  }
+  #titre {
+    font-size: 1.3em;
+    color: darkslateblue;
+    text-align: left;
+    margin-left: 10px;
+  }
+  h2 {
+    font-size: 0.8em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 0.7em;
+  }
+  article a {
+    font-size: 0.9em;
+  }
+  p,
+  h3,
+  header a {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  #script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.5em;
+  }
+  .spanouvelle {
+    font-size: 0.5em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+}
+
+/**************************************************************************/
+/*HEADER*/
+/**************************************************************************/
+.backGroundHeader {
+  font-family: "Advent Pro", sans-serif;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  // border: 1px solid violet;
+}
+
+.headerHome {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  max-width: 100%;
+  border: 1px solid black;
+  height: 250px;
+}
+
+#image {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+/****TITRE****/
+#titre {
+  animation-name: monanimation; /*l'animation est appelé ici*/
+  animation-duration: 10s;
+  margin-top: 10px; /*header h1 marge en haut*/
+  font-family: "Lovers Quarrel", cursive;
+  overflow: hidden; /*s'efface quand il n'y a plus de place*/
+  font-weight: 600; /*font avec valeur numérique correspondant à un bold léger plus*/
+
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+
+/****BARRE DE NAVIGATION****/
+
+nav {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 89%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(250, 235, 215, 0.8);
+  /*on priviligie rgba afin d'utiliser l'opacity car elle ne va pas hériter les autres élements à l'instar d'opacity*/
+}
+
+.menu {
+  display: flex; /*les blocs se placent par défaut côte à côte à l'horizontal*/
+  list-style-type: none; /*Enlever les points devants les li*/
+  margin: 0;
+  padding-left: 0;
+}
+
+.submenu {
+  background-color: rgba(246, 231, 211, 0.95);
+  list-style-type: none; /*Enlever les points devants les li*/
+  display: none;
+  position: absolute; /*Pour que les gds menus s'affichent normalement*/
+  left: 0; /* permet de centrer les li sous menu*/
+  right: 0;
+}
+
+.deroulant:hover {
+  /*background-color: #D2B48C;changement couleur lorsque l'on passe sur <a>*/
+  background-color: rgba(210, 180, 140, 0.7);
+}
+
+.deroulant a:hover {
+  transform: scale(1.05); /*survole avec le pointeur grossissement*/
+}
+
+.menu li,
+.deroulant {
+  text-align: center;
+  flex: 1; /* L'espace dans le conteneur parent ul est réparti également avec ses enfants li */
+}
+nav a {
+  color: darkslateblue;
+  display: block; /*elles prennent toute la largeur disponible*/
+  text-decoration: none;
+  padding: 5px 0px 5px 0px; /* espace en haut et en bas*/
+  font-weight: bold;
+}
+
+.submenu li:hover {
+  background-color: #d2b48c;
+  cursor: pointer; /*Changer le curseur*/
+}
+
+.menu > li:hover .submenu {
+  display: block;
+  opacity: 1;
+}
+
+.menu > li {
+  position: relative;
+}
+
+#logo {
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+}
