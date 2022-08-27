@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   BreakError = {};
   data: any = [];
   allUsers: any = [];
+  loginStatus: boolean = false;
 
   constructor(
     private router: Router,
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('loginFormUsers', JSON.stringify(userStorage));
           this.connectionBdd.updateLoginForm(this.loginForm);
+          this.loginStatus = true;
           this.router.navigate(['/']);
 
           throw this.BreakError;
@@ -73,9 +75,12 @@ export class LoginComponent implements OnInit {
           document.getElementById('msg')!.innerHTML = this.messageError;
 
           // On l'efface 2 secondes plus tard
+          //pb de undifined une fois sur home alors que je ne passe pas dedans
+          //la variable est certainement plus dispo car on arrive sur home alors que cette dernière va se désactiver 2 sec après
+          //voir word angular
           /*           setTimeout(() => {
             document.getElementById('msg')!.innerHTML = '';
-          }, 2000); */
+          }, 0); */
         }
       });
     } catch (err) {

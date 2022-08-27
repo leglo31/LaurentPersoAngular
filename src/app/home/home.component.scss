@@ -1,17 +1,63 @@
-.text-center{
-  text-align: center;
-}
 .example-container{
   height: 50%;
   text-align: left;
+  border: 1px solid violet;
 }
 
-.backButton{
+.headerHome{
+  border: 1px solid darkblue;
+  //display: inline-block;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-center{
   text-align: center;
-  margin-bottom: 10px;
+ //display: flex;
+ // justify-content: space-between;
+  font-weight: bolder;
+  margin-left: 472px;
+}
+
+.button{
+ // display: flex;
+  //ustify-content: space-between;
+}
+
+.footerHome{
+  text-align: center;
+  //margin-top: 30px;
+  border: 1px solid green;
 }
 
 .image{
   text-align: center;
-  margin-bottom: 20px;
+  border: 1px solid red;
+  //margin-bottom: 20px;
+}
+
+#button1{
+ margin-right:10px;
+}
+
+#button2{
+ margin-left:10px;
+}
+
+.buttonDeConnection{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.sentenceFooter{
+  display: flex;
+  justify-content: center;
+margin-top: 10px;
+}
+
+#message{
+  font-weight: bolder;
+}
+
+#email{
+  color: red;
 }

@@ -1,13 +1,35 @@
 <div class="example-container">
-  <h4 class="text-center">
-    Bienvenue sur l'application géniale de Laurent</h4>
+
+  <div class="headerHome">
+    <div class="text-center">
+      Bienvenue sur l'application géniale de Laurent
+    </div>
+    <!--   <div class="button">
+    <button style="margin-right:10px;" color="primary" (click)="routInscription()">Inscription</button>
+    <button style="margin-left:10px;" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
+  </div> -->
+
+    <div class="button">
+      <button id="button1" color="primary" (click)="routInscription()">Inscription</button>
+      <button id="button2" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
+    </div>
+  </div>
+
   <div class="image">
     <img src="../assets/images/mon-image.png" />
   </div>
-  <div class="backButton">
-    <button style="margin-right:5px;" color="primary" (click)="routInscription()">Inscription</button>
-    <button style="margin-left:5px;" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
-  </div>
-  <div>Vous êtes connecté avec l'adresse: {{email}}
+
+  <!--   <div *ngIf="isAuth">Vous êtes connecté avec l'adresse: {{email}}
+  </div> -->
+  <div class="footerHome">
+    <div class="sentenceFooter">
+      <div id="message">{{message}}&nbsp;
+      </div>
+      <div id="email">{{email}}
+      </div>
+    </div>
+
+    <button [hidden]="isAuth === false" class="buttonDeConnection" color="primary"
+      (click)="routDeconnection()">Deconnection</button>
   </div>
 </div>
