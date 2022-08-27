@@ -1,63 +1,337 @@
-.example-container{
-  height: 50%;
-  text-align: left;
-  border: 1px solid violet;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro&family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+/*
+font-family: 'Advent Pro', sans-serif;
+font-family: 'Dancing Script', cursive;
+*/
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Advent+Pro&family=Dancing+Script&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* aucune marge sur tous les éléments, et éléments avec les marges sont calculés directement*/
+
+@media screen and (max-width: 6000px) {
+  /*grand écran*/
+  h1 {
+    font-size: 3em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 2em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.5em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1.4em;
+    color: darkslateblue;
+  }
+  .script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 1.1em;
+    color: darkslateblue;
+  }
+  footer a {
+    font-size: 1.2em;
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 1em;
+  }
+  .spanouvelle {
+    font-size: 0.8em;
+  }
+  h4 {
+    font-size: 2.2em;
+    color: darkslateblue;
+  }
 }
 
-.headerHome{
-  border: 1px solid darkblue;
+@media screen and (max-width: 1800px) {
+  /*écran pc normal 17' entre 1300 et 1800px*/
+  h1 {
+    font-size: 2.6em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1.5em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.3em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1.2em;
+    color: darkslateblue;
+  }
+  .script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.9em;
+  }
+  .spanouvelle {
+    font-size: 0.65em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.8em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  /*écran hp ancien entre 900 et 1300px*/
+  h1 {
+    font-size: 2.3em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1.3em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 1.1em;
+  }
+  article a,
+  p,
+  h3,
+  header a {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  .script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.85em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: black;
+  }
+  h5 {
+    font-size: 0.75em;
+  }
+  .spanouvelle {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.6em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  /*tablette entre 480 et 900*/
+  .tousaside {
+    display: none;
+  }
+  h1 {
+    font-size: 2em;
+    color: darkslateblue;
+    margin-right: 30px;
+    text-align: right;
+  }
+  h2 {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 0.9em;
+  }
+  article a,
+  p,
+  h3 a,
+  header a {
+    font-size: 0.8em;
+    color: darkslateblue;
+  }
+  .script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.65em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.6em;
+  }
+  .spanouvelle {
+    font-size: 0.5em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1.4em;
+    color: darkslateblue;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*portable*/
+  .tousaside {
+    display: none;
+  }
+  h1 {
+    font-size: 1.3em;
+    color: darkslateblue;
+    text-align: left;
+    margin-left: 10px;
+  }
+  h2 {
+    font-size: 0.8em;
+    color: darkslateblue;
+  }
+  legend {
+    font-size: 0.7em;
+  }
+  article a {
+    font-size: 0.9em;
+  }
+  p,
+  h3,
+  header a {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  .script,
+  #ulinscription a,
+  .tousaside a,
+  label,
+  footer li,
+  form input {
+    font-size: 0.6em;
+    color: darkslateblue;
+  }
+  footer a {
+    color: darkslateblue;
+  }
+  h5 {
+    font-size: 0.5em;
+  }
+  .spanouvelle {
+    font-size: 0.5em;
+    color: darkslateblue;
+  }
+  h4 {
+    font-size: 1em;
+    color: darkslateblue;
+  }
+}
+
+.example-container {
+  //background-color: darkslategray;
+  height: 50%;
+  text-align: left;
+  // border: 1px solid violet;
+}
+
+.headerHome {
+  //border: 1px solid darkblue;
   //display: inline-block;
   display: flex;
   justify-content: space-between;
 }
 
-.text-center{
+.text-center {
   text-align: center;
- //display: flex;
- // justify-content: space-between;
+  //display: flex;
+  // justify-content: space-between;
   font-weight: bolder;
   margin-left: 472px;
 }
 
-.button{
- // display: flex;
+.button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  // display: flex;
   //ustify-content: space-between;
 }
 
-.footerHome{
+.footerHome {
   text-align: center;
   //margin-top: 30px;
   border: 1px solid green;
 }
 
-.image{
+.image {
   text-align: center;
-  border: 1px solid red;
+  //border: 1px solid red;
   //margin-bottom: 20px;
 }
 
-#button1{
- margin-right:10px;
+#button1 {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-#button2{
- margin-left:10px;
+#button2 {
+  margin-left: 10px;
 }
 
-.buttonDeConnection{
+.buttonDeConnection {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.sentenceFooter{
+.sentenceFooter {
   display: flex;
   justify-content: center;
-margin-top: 10px;
+  margin-top: 10px;
 }
 
-#message{
+#message {
   font-weight: bolder;
 }
 
-#email{
+#email {
   color: red;
+}
+
+.script {
+  margin: 5px;
+  font-weight: bold;
+  overflow: hidden;
 }
