@@ -56,22 +56,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    m = this.checkTime(m);
-    document.getElementById('time')!.innerHTML = +today + h + ':' + m;
-    var t = setTimeout(this.startTime, 500);
-  }
-
-  checkTime(i: number) {
-    if (i < 10) {
-      i = 0 + i;
-    } // add zero in front of numbers < 10
-    return i;
-  }
-
   date() {
     var date1 = new Date();
 
@@ -82,8 +66,9 @@ export class HomeComponent implements OnInit {
       day: 'numeric',
       hour: 'numeric',
       minute: 'numeric',
-      second: 'numeric',
     });
+    dateLocale = dateLocale[0].toUpperCase() + dateLocale.slice(1);
+    dateLocale = dateLocale.replace('à', ' - ');
     document.getElementById('p1')!.innerHTML! = dateLocale;
   }
 }

@@ -42,7 +42,8 @@
       </div>
       <div class="mt-top">
         <button [disabled]="!loginForm.valid" color="primary" (click)="checkLogin()">Sign In</button>
-        <div id="msg" class="messageLogin"></div>
+        <!-- <div id="msg" class="messageLogin"></div> -->
+        <ng-template #alertContainer></ng-template>
       </div>
       <div class="backButton">
         <button [disabled]="" color="primary" (click)="backHome()">Back</button>
