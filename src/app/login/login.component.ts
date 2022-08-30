@@ -116,7 +116,9 @@ export class LoginComponent implements OnInit {
         } else {
           this.readMessageError = true;
           this.displayAnAlert();
-          document.getElementById('msg')!.innerHTML = this.messageError;
+          //mettre visible la variable d'erreur
+          //et mettre d'erreur à vide
+          //document.getElementById('msg')!.innerHTML = this.messageError;
 
           // On l'efface 2 secondes plus tard
           //pb de undifined une fois sur home alors que je ne passe pas dedans
