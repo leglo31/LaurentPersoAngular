@@ -21,7 +21,7 @@ font-family: 'Dancing Script', cursive;
 
 @media screen and (max-width: 6000px) {
   /*grand écran*/
-  h1 {
+  #titre {
     font-size: 3em;
     color: darkslateblue;
     margin-right: 30px;
@@ -41,7 +41,7 @@ font-family: 'Dancing Script', cursive;
     font-size: 1.4em;
     color: darkslateblue;
   }
-  .script,
+  #script,
   #ulinscription a,
   .tousaside a,
   label,
@@ -68,7 +68,7 @@ font-family: 'Dancing Script', cursive;
 
 @media screen and (max-width: 1800px) {
   /*écran pc normal 17' entre 1300 et 1800px*/
-  h1 {
+  #titre {
     font-size: 2.6em;
     color: darkslateblue;
     margin-right: 30px;
@@ -88,7 +88,7 @@ font-family: 'Dancing Script', cursive;
     font-size: 1.2em;
     color: darkslateblue;
   }
-  .script,
+  #script,
   #ulinscription a,
   .tousaside a,
   label,
@@ -115,7 +115,7 @@ font-family: 'Dancing Script', cursive;
 
 @media screen and (max-width: 1300px) {
   /*écran hp ancien entre 900 et 1300px*/
-  h1 {
+  #titre {
     font-size: 2.3em;
     color: darkslateblue;
     margin-right: 30px;
@@ -135,7 +135,7 @@ font-family: 'Dancing Script', cursive;
     font-size: 1em;
     color: darkslateblue;
   }
-  .script,
+  #script,
   #ulinscription a,
   .tousaside a,
   label,
@@ -165,7 +165,7 @@ font-family: 'Dancing Script', cursive;
   .tousaside {
     display: none;
   }
-  h1 {
+  #titre {
     font-size: 2em;
     color: darkslateblue;
     margin-right: 30px;
@@ -185,7 +185,7 @@ font-family: 'Dancing Script', cursive;
     font-size: 0.8em;
     color: darkslateblue;
   }
-  .script,
+  #script,
   #ulinscription a,
   .tousaside a,
   label,
@@ -215,7 +215,7 @@ font-family: 'Dancing Script', cursive;
   .tousaside {
     display: none;
   }
-  h1 {
+  #titre {
     font-size: 1.3em;
     color: darkslateblue;
     text-align: left;
@@ -237,7 +237,7 @@ font-family: 'Dancing Script', cursive;
     font-size: 0.6em;
     color: darkslateblue;
   }
-  .script,
+  #script,
   #ulinscription a,
   .tousaside a,
   label,
@@ -262,77 +262,118 @@ font-family: 'Dancing Script', cursive;
   }
 }
 
-.example-container {
-  //background-color: darkslategray;
-  height: 50%;
-  text-align: left;
-  // border: 1px solid violet;
-}
-
-.headerHome {
-  //border: 1px solid darkblue;
-  //display: inline-block;
+/****CONTENU NOUVELLE****/
+article {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column; /*met tout le contenu dans les article en mode colonne, les uns au dessus des autres*/
+  margin-left: 5px; /*marge entre les article*/
+  /*border-left: 1px solid #DCDCDC;*/
+  font-family: "Aileron-Bold";
 }
 
-.text-center {
+/*.article:nth-child(3){
+border-bottom: 1px solid #DCDCDC; trait sous le dernier article
+}*/
+
+article div {
+  padding: 4.1px; /*hauteur des titres h5 qui sont en gray afin d'être aussi haut que ceux des asides */
+  color: white;
+  background-color: gray;
+}
+
+article h5,
+h4 {
+  margin-left: 5px; /*marge gauche des h5 et h4 ->titre en fond gris+Nouvelles de rêves*/
+}
+
+article h3 {
+  /*        border: 1px solid #DCDCDC; cadre pour essai*/
+  padding: 3px; /*hauteur des h3 ->nouvelles*/
+  margin: 0px 5px 0px 5px;
+  font-family: "Aileron-Bold";
+  /*    font-weight:normal;enlève le bold mis par défaut */
+}
+
+article p {
+  text-align: justify;
+}
+
+#h3dixnouvelles:nth-child(2n + 1) {
+  background-color: #faf0e6; /*change de couleur une fois sur deux(paire->even)*/
+}
+
+#h3dixnouvelles {
+  margin-bottom: 2px; /*marge bas des li car ils sont sur la boucle foreach*/
+}
+
+#h3lastnews {
+  background-color: #faf0e6;
+  margin-top: 5px;
+  margin-bottom: 5px; /*marge haut et bas du h3 de la dernière nouvelle...
+  obligé de faire ainsi à cause du foreach sur les nouvelles et qui ont aussi un h3 */
+}
+
+#h5dixnouvelles {
+  margin-bottom: 5px; /*marge bas du h3->10 dernières nouvelles*/
+}
+
+p {
+  font-family: "Aileron-Bold";
+  margin-bottom: 12px;
+}
+
+article a {
+  text-decoration: none;
+}
+
+#articleAuteur {
+  border: 1px solid #dcdcdc;
+  min-height: 55vh;
+  margin: 20px 10px 20px 15px;
+}
+#articleAuteur {
   text-align: center;
-  //display: flex;
-  // justify-content: space-between;
-  font-weight: bolder;
-  margin-left: 472px;
 }
 
-.button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  // display: flex;
-  //ustify-content: space-between;
+article h4 {
+  padding: 10px 0px 10px 0px;
+  font-family: "Lovers Quarrel", cursive;
 }
 
-.footerHome {
-  text-align: center;
-  //margin-top: 30px;
-  border: 1px solid green;
-}
+/* #img {
+  background-image: url(unders.png);
+  background-repeat: no-repeat;
+  background-position: top;
+} */
 
-.image {
-  text-align: center;
-  //border: 1px solid red;
-  //margin-bottom: 20px;
-}
-
-#button1 {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-#button2 {
-  margin-left: 10px;
-}
-
-.buttonDeConnection {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.sentenceFooter {
+#section {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  margin-top: 10px;
 }
 
-#message {
-  font-weight: bolder;
+section {
+  flex-grow: 1;
 }
 
-#email {
-  color: red;
+section:nth-child(1) {
+  border-right: 1px solid #dcdcdc;
 }
 
-.script {
-  margin-left: 10px;
-  margin-top: 10px;
+legend {
   font-weight: bold;
-  overflow: hidden;
+  color: #0568cd;
 }
+
+#pouces {
+  background-color: floralwhite;
+}
+
+#commentaires {
+  border: 1px solid lightgray;
+}
+/*.spandate{
+font-size: 0.8em;
+color: grey;
+font-family:'Aileron-Bold';
+}*/

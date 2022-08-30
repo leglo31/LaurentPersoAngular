@@ -1,13 +1,34 @@
 <div class="example-container">
-  <h4 class="text-center">
-    Bienvenue sur l'application géniale de Laurent</h4>
-  <div class="image">
-    <img src="../assets/images/mon-image.png" />
+
+  <app-header></app-header>
+  <div class="headerHome">
+
+    <div class="button">
+      <button id="button1" color="primary" (click)="routInscription()">Inscription</button>
+      <button id="button2" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
+
+      <div class="script" id='p1'></div>
+    </div>
   </div>
-  <div class="backButton">
-    <button style="margin-right:5px;" color="primary" (click)="routInscription()">Inscription</button>
-    <button style="margin-left:5px;" [disabled]="" color="primary" (click)="routConnection()">Connection</button>
-  </div>
-  <div>Vous êtes connecté avec l'adresse: {{email}}
+
+  <!--   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <div id="time"></div> -->
+
+  <app-article></app-article>
+
+
+
+  <div class="footerHome">
+    <div *ngIf="isAuth" class="sentenceFooter">
+      <div id="message">{{message}}&nbsp;
+      </div>
+      <div id="email">{{email}}
+      </div>
+    </div>
+
+    <button [hidden]="isAuth === false" class="buttonDeConnection" color="primary"
+      (click)="routDeconnection()">Deconnection</button>
   </div>
 </div>
+
+<app-footer></app-footer>

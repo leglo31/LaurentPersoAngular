@@ -9,8 +9,8 @@
 </div> -->
 
 <div class="text-center">
-  <h4 class="text-center">
-    Authentication form to enter Laurent's application</h4>
+  <div class="text-center">
+    Authentication form to enter Laurent's application</div>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
     <div class="example-container">
       <div>
@@ -42,7 +42,8 @@
       </div>
       <div class="mt-top">
         <button [disabled]="!loginForm.valid" color="primary" (click)="checkLogin()">Sign In</button>
-        <div id="msg" class="messageLogin"></div>
+        <!-- <div id="msg" class="messageLogin"></div> -->
+        <ng-template #alertContainer></ng-template>
       </div>
       <div class="backButton">
         <button [disabled]="" color="primary" (click)="backHome()">Back</button>

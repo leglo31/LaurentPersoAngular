@@ -1,8 +1,20 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  Input,
+  OnInit,
+  SimpleChanges,
+  Type,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ConnectionBddService } from '../connection-bdd.service';
+import { EventServiceService } from '../event-service.service';
+import { InotifAlert } from '../notification/notification';
+import { NotificationComponent } from '../notification/notification.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,12 +27,22 @@ export class LoginComponent implements OnInit {
   BreakError = {};
   data: any = [];
   allUsers: any = [];
+  loginStatus: boolean = false;
+  @ViewChild('alertContainer', { read: ViewContainerRef })
+  alertContainer!: ViewContainerRef;
+  alertList = new Array(0);
 
   constructor(
     private router: Router,
     private db: AngularFireDatabase,
-    private connectionBdd: ConnectionBddService
+    private connectionBdd: ConnectionBddService,
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private eventService: EventServiceService
   ) {
+    this.eventService.observable.subscribe((event) => {
+      this.loadNewAlertComponent(event);
+    });
+
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -46,6 +68,28 @@ export class LoginComponent implements OnInit {
     }); */
   }
 
+  createComponent(alertComponent: Type<NotificationComponent>) {
+    const componentFactory =
+      this.componentFactoryResolver.resolveComponentFactory(alertComponent);
+    return this.alertContainer.createComponent(componentFactory);
+  }
+
+  loadNewAlertComponent(event: InotifAlert) {
+    const component = this.createComponent(NotificationComponent);
+    (component.instance as NotificationComponent).event = event;
+    (component.instance as NotificationComponent).eventToDelete.subscribe(
+      () => {
+        component.destroy();
+      }
+    );
+    component.changeDetectorRef.detectChanges();
+    this.alertList[this.alertList.length] = component;
+  }
+
+  displayAnAlert() {
+    this.eventService.displayAlert(this.messageError, 'error');
+  }
+
   onSubmit() {
     /*     if (!this.loginForm.valid) {
       return;
@@ -65,17 +109,24 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem('loginFormUsers', JSON.stringify(userStorage));
           this.connectionBdd.updateLoginForm(this.loginForm);
+          this.loginStatus = true;
           this.router.navigate(['/']);
 
           throw this.BreakError;
         } else {
           this.readMessageError = true;
-          document.getElementById('msg')!.innerHTML = this.messageError;
+          this.displayAnAlert();
+          //mettre visible la variable d'erreur
+          //et mettre d'erreur à vide
+          //document.getElementById('msg')!.innerHTML = this.messageError;
 
           // On l'efface 2 secondes plus tard
+          //pb de undifined une fois sur home alors que je ne passe pas dedans
+          //la variable est certainement plus dispo car on arrive sur home alors que cette dernière va se désactiver 2 sec après
+          //voir word angular
           /*           setTimeout(() => {
             document.getElementById('msg')!.innerHTML = '';
-          }, 2000); */
+          }, 0); */
         }
       });
     } catch (err) {

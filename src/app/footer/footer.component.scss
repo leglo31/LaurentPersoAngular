@@ -1,0 +1,27 @@
+footer {
+  border-top: 1px solid #dcdcdc;
+  font-weight: 500;
+}
+footer a {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+#copyright {
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /*wrap met à la ligne les li losqu'il n'y a plus de place horizontale*/
+  list-style-type: none; /*enlève les points sur les li*/
+  margin: 10px;
+  align-items: center; /* aligne les li */
+}
+
+#reseau {
+  list-style-type: none; /*enlève les points sur les li*/
+  display: flex;
+  align-items: center;
+  /*wrap met à la ligne les li losqu'il n'y a plus de place horizontale*/
+}
