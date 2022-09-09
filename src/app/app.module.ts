@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticleComponent } from './article/article.component';
 import { NotificationComponent } from './notification/notification.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NotificationComponent } from './notification/notification.component';
     FooterComponent,
     ArticleComponent,
     NotificationComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
