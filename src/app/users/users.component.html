@@ -1,0 +1,12 @@
+<p>List users</p>
+
+
+<ul *ngFor="let a of userEmails">
+  <li>{{a}}</li>
+</ul>
+
+
+
+<div class="backButton">
+  <button [disabled]="" color="primary" (click)="backHome()">Back</button>
+</div>
